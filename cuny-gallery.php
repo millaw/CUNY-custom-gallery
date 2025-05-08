@@ -55,8 +55,8 @@ add_action('admin_menu', function() {
 add_action('admin_enqueue_scripts', function($hook) {
     if (strpos($hook, 'cuny-gallery') !== false) {
         wp_enqueue_media();
-        wp_enqueue_script('cuny-gallery-admin', plugin_dir_url(__FILE__) . 'admin/assets/admin.js', ['jquery'], time(), true);
-        wp_enqueue_style('cuny-gallery-admin-style', plugin_dir_url(__FILE__) . 'admin/assets/admin.css', [], time());
+        wp_enqueue_script('cuny-gallery-admin', plugin_dir_url(__FILE__) . 'admin/assets/admin.js', ['jquery'], null, true);
+        wp_enqueue_style('cuny-gallery-admin-style', plugin_dir_url(__FILE__) . 'admin/assets/admin.css');
 
         // Pass current gallery ID to JS if present
         if (isset($_GET['view']) && $_GET['view'] === 'edit' && isset($_GET['id'])) {
@@ -78,7 +78,7 @@ add_action('wp_enqueue_scripts', function () {
     $post = get_post();
     if (is_singular() && $post && preg_match('/\[cuny_gallery(_\d+)?\]/', $post->post_content)) {
         wp_enqueue_style('cuny-gallery-style', plugin_dir_url(__FILE__) . 'frontend/assets/gallery-slider.css');
-        wp_enqueue_script('cuny-gallery-script', plugin_dir_url(__FILE__) . 'frontend/assets/gallery-slider.js', ['jquery'], time(), true);
+        wp_enqueue_script('cuny-gallery-script', plugin_dir_url(__FILE__) . 'frontend/assets/gallery-slider.js', ['jquery'], null, true);
     }
 });
 
