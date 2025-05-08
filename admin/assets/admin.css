@@ -1,0 +1,350 @@
+.cuny-gallery-wrapper .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cuny-gallery-wrapper .gallery-item {
+    position: relative;
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.cuny-gallery-wrapper .image-wrapper img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+}
+
+.cuny-gallery-wrapper .image-options {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cuny-gallery-wrapper .button {
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 2px;
+    font-size: 12px;
+}
+
+.cuny-gallery-wrapper .image-wrapper {
+    position: relative;
+}
+
+/* Modal */
+.cuny-gallery-wrapper .cuny-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cuny-gallery-wrapper .modal-content {
+    background: #fff;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.cuny-gallery-wrapper .button-danger {
+    background-color: #dc3232;
+    color: #fff;
+}
+
+/* Shared base for all buttons */
+.cuny-gallery-wrapper .button {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s;
+    white-space: nowrap;
+}
+
+/* Primary: blue */
+.cuny-gallery-wrapper .button-primary {
+    background-color: #0073aa;
+    border-color: #0073aa;
+    color: #fff;
+}
+
+.cuny-gallery-wrapper .button-primary:hover {
+    background-color: #005177;
+    border-color: #00456a;
+}
+
+/* Secondary: gray */
+.cuny-gallery-wrapper .button-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.cuny-gallery-wrapper .button-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Warning: yellow */
+.cuny-gallery-wrapper .button-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+}
+
+.cuny-gallery-wrapper .button-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+/* Danger: red */
+.cuny-gallery-wrapper .button-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.cuny-gallery-wrapper .button-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Success: green (for show/hide) */
+.cuny-gallery-wrapper .button-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.cuny-gallery-wrapper .button-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Layout and menu improvements */
+.cuny-gallery-wrapper .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cuny-gallery-wrapper .gallery-item {
+    position: relative;
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
+}
+
+.cuny-gallery-wrapper .gallery-item:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cuny-gallery-wrapper .image-wrapper img {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    border-radius: 3px;
+}
+
+.cuny-gallery-wrapper .image-options {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cuny-gallery-wrapper .isVisible-0 img {
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+/* 3-dot menu */
+.cuny-gallery-wrapper .menu-button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 3px 8px;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+}
+
+.cuny-gallery-wrapper .gallery-item:hover .menu-button {
+    display: block;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(60px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal base */
+#imageOptionsModal.cuny-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cuny-modal .modal-content {
+    background: #fff;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.3s ease-out;
+}
+
+/* Input Label */
+#imageOptionsModal label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Alt Text Input */
+#modalAltText {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+/* Buttons */
+#imageOptionsModal .button {
+    display: inline-block;
+    padding: 6px 14px;
+    margin: 6px 4px 0 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+#imageOptionsModal .button-primary {
+    background-color: #0073aa;
+    color: white;
+}
+
+#imageOptionsModal .button-primary:hover {
+    background-color: #005177;
+}
+
+#imageOptionsModal .button-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+#imageOptionsModal .button-danger:hover {
+    background-color: #c82333;
+}
+
+#imageOptionsModal .button-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+#imageOptionsModal .button-secondary:hover {
+    background-color: #5a6268;
+}
+
+#imageOptionsModal .button-success {
+    background-color: #28a745;
+    color: white;
+}
+
+#imageOptionsModal .button-success:hover {
+    background-color: #218838;
+}
+
+/* Divider */
+#imageOptionsModal hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Modal Header */
+#imageOptionsModal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+#imageOptionsModal .modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Close button (top right) */
+#imageOptionsModal .close-modal {
+    background: none;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    color: #888;
+    cursor: pointer;
+}
+
+#imageOptionsModal .close-modal:hover {
+    color: #000;
+}
+
+/* Modal Body */
+#imageOptionsModal .modal-body {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Modal Actions */
+#imageOptionsModal .modal-actions {
+    text-align: right;
+}
