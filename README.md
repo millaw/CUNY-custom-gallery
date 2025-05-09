@@ -27,7 +27,7 @@
 
 1. Download the plugin or clone this repository:
    ```bash
-   git clone https://github.com/yourusername/cuny-gallery.git
+   git clone https://github.com/yourusername/cuny-custom-gallery.git
    ```
 
 2. Copy the folder to your WordPress plugins directory:
