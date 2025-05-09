@@ -48,7 +48,7 @@ function display_style_name($g) {
                 <td><?php echo esc_html($g->gallery_name); ?></td>
                 <td><?php echo display_style_name(esc_html($g->gallery_style)); ?></td>
                 <td><?php echo esc_html($g->gallery_shortcode); ?></td>
-                <td><?php echo $g->visible ? 'Yes' : 'No'; ?></td>
+                <td><?php echo $g->visible ? '<span style="color: green;">Yes</span>' : '<span style="color: red;">No</span>'; ?></td>
                 <td>
                     <a class="button button-primary" href="?page=cuny-gallery&view=edit&id=<?php echo $g->id; ?>">Edit</a>
                     <a class="button button-success" href="?page=cuny-gallery&toggle_gallery=<?php echo $g->id; ?>"><?php echo $g->visible ? 'Hide' : 'Show'; ?></a>
