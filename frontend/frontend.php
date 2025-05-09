@@ -98,4 +98,5 @@ if (!function_exists('cuny_gallery_handler')) {
         return ob_get_clean();
     }
 }
+add_shortcode('cuny_gallery', 'cuny_gallery_handler');
 ?>
