@@ -55,8 +55,8 @@ add_action('admin_menu', function() {
 add_action('admin_enqueue_scripts', function($hook) {
     if (strpos($hook, 'cuny-gallery') !== false) {
         wp_enqueue_media();
-        wp_enqueue_script('cuny-gallery-admin', plugin_dir_url(__FILE__) . 'admin/assets/admin.js', ['jquery'], null, true);
-        wp_enqueue_style('cuny-gallery-admin-style', plugin_dir_url(__FILE__) . 'admin/assets/admin.css');
+        wp_enqueue_script('cuny-gallery-admin', plugin_dir_url(__FILE__) . 'admin/assets/admin.js', ['jquery'], time(), true);
+        wp_enqueue_style('cuny-gallery-admin-style', plugin_dir_url(__FILE__) . 'admin/assets/admin.css', [], time());
 
         // Pass current gallery ID to JS if present
         if (isset($_GET['view']) && $_GET['view'] === 'edit' && isset($_GET['id'])) {
@@ -78,7 +78,7 @@ add_action('wp_enqueue_scripts', function () {
     $post = get_post();
     if (is_singular() && $post && preg_match('/\[cuny_gallery(_\d+)?\]/', $post->post_content)) {
         wp_enqueue_style('cuny-gallery-style', plugin_dir_url(__FILE__) . 'frontend/assets/gallery-slider.css');
-        wp_enqueue_script('cuny-gallery-script', plugin_dir_url(__FILE__) . 'frontend/assets/gallery-slider.js', ['jquery'], null, true);
+        wp_enqueue_script('cuny-gallery-script', plugin_dir_url(__FILE__) . 'frontend/assets/gallery-slider.js', ['jquery'], time(), true);
     }
 });
 
@@ -230,13 +230,13 @@ add_action('admin_init', function() {
         wp_send_json_success();
     });
 });
-
+// Load the handler function for the shortcode
 if (!is_admin()) {
     require_once plugin_dir_path(__FILE__) . 'frontend/frontend.php';
 }
 
-// Register main shortcode
-add_shortcode('cuny_gallery', 'cuny_gallery_handler');
+// Attach the filter
+add_filter('the_content', 'process_cuny_gallery', 5);
 if (!function_exists('process_cuny_gallery')) {
     function process_cuny_gallery($content) {
         // Convert [cuny_gallery_1] → [cuny_gallery id="1"]
@@ -252,4 +252,3 @@ if (!function_exists('process_cuny_gallery')) {
         return do_shortcode($converted);
     }        
 }
-add_filter('the_content', 'process_cuny_gallery', 5);
