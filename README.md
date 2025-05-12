@@ -5,25 +5,25 @@
 
 ---
 
-## 🎯 Features
+## Features
 
-- ✅ Create galleries and assign them to pages/posts
-- 🖼 Add images directly from the WordPress Media Library
-- ✏️ Edit image alt text inline
-- 🔄 Drag & drop image reordering
-- 👁 Show/Hide individual images
-- ❌ Delete images or entire galleries
-- 📋 Modal interface with 3-dot menu for image controls
-- 🧩 Frontend display using:
+- Create galleries and assign them to pages/posts
+- Add images directly from the WordPress Media Library
+- Edit image alt text inline
+- Drag & drop image reordering
+- Show/Hide individual images
+- Delete images or entire galleries
+- Modal interface with 3-dot menu for image controls
+- Frontend display using:
   - Lazy load grid
   - Slider
   - Slider + Gallery hybrid
-- 🔌 Shortcode system: `[cuny_gallery_123]` auto-generates for each gallery
-- 🎨 Custom styling, no Bootstrap dependency
+- Shortcode system: `[cuny_gallery_123]` auto-generates for each gallery
+- Custom styling, no Bootstrap dependency
 
 ---
 
-## 🚀 Installation
+## Installation
 
 1. Download the plugin or clone this repository:
    ```bash
@@ -39,7 +39,7 @@
 
 ---
 
-## 🛠 Usage
+## Usage
 
 ### 1. Create a Gallery
 - Navigate to **CUNY Gallery** in the WP Admin.
@@ -60,7 +60,7 @@
 
 ---
 
-## 📦 Shortcodes
+## Shortcodes
 
 | Format                  | Description                      |
 |-------------------------|----------------------------------|
@@ -69,7 +69,7 @@
 
 ---
 
-## 🧩 Customization
+## Customization
 
 - Admin styles are in: `admin/assets/admin.css`
 - Frontend styles: `frontend/assets/gallery-slider.css`
@@ -78,7 +78,7 @@
 
 ---
 
-## ⚙️ Development
+## Development
 
 To ensure your CSS/JS changes are always loaded fresh:
 
@@ -91,14 +91,14 @@ This disables caching during development.
 
 ---
 
-## 📜 License
+## License
 
 This plugin is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
 
-## ✨ Author
+## Author
 
-Developed by [Milla Wynn](https://github.com/yourusername) – WordPress Developer at CUNY Central.
+Developed by [Milla Wynn](https://github.com/yourusername)
 
 ---
