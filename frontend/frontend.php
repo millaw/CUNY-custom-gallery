@@ -65,7 +65,7 @@ if (!function_exists('cuny_gallery_handler')) {
         <button class="slider-gallery-btn left" id="prevGalleryBtn" aria-label="Previous slide"><span>‹</span></button>
         <div class="slider-gallery-track" id="sliderGalleryTrack">
             <?php
-            $imagesPerSlide = 6;
+            $imagesPerSlide = 8;
             $chunks = array_chunk($images_array, $imagesPerSlide);
             foreach ($chunks as $slideIndex => $group): ?>
                 <div class="slider-gallery-slide">
