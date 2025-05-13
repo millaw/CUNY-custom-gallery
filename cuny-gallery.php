@@ -2,8 +2,8 @@
 /**
  * Plugin Name: CUNY Gallery
  * Plugin URI: https://www.github.com/millawy/cuny-custom-gallery
- * Description: Gallery creation, image management, and frontend shortcode display. Insert a shortcode [cuny_gallery] into a page to display the gallery.
- * Version: 1.2.0
+ * Description: Gallery creation, image management, and frontend shortcode display. Insert a shortcode [cuny_gallery_X] into a page to display the gallery.
+ * Version: 1.2.1
  * Author: Milla Wynn
  * Author URI: https://www.github.com/millaw
  * License: GPL2
