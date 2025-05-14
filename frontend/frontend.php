@@ -34,9 +34,9 @@ if (!function_exists('cuny_gallery_handler')) {
     $total_images = count($images_array);
     ob_start();
 ?>
-<div class="cuny-gallery-wrapper">
+<div class="cuny-gallery-wrapper" data-gallery-id="<?php echo esc_attr($gallery_id); ?>" >
 <?php if ($gallery->gallery_style === 'gallery'): ?>
-    <div class="gallery" id="gallery">
+    <div class="gallery" id="gallery-<?php echo $gallery_id; ?>">
         <?php foreach ($initial_chunk as $index => $img): ?>
             <article class="gallery-item" data-index="<?php echo $index; ?>">
                 <a href="<?php echo esc_url($img['href']); ?>" aria-label="View full-size image: <?php echo esc_attr($img['alt']); ?>">
@@ -46,24 +46,24 @@ if (!function_exists('cuny_gallery_handler')) {
         <?php endforeach; ?>
     </div>
     <?php if ($total_images > 8): ?>
-        <button id="loadMoreBtn" class="load-more-btn cuny-cta-button">Load More</button>
+        <button id="loadMoreBtn-<?php echo $gallery_id; ?>" class="load-more-btn cuny-cta-button">Load More</button>
     <?php endif; ?>
 <?php elseif ($gallery->gallery_style === 'slider'): ?>
-    <div class="slider-container" id="sliderContainer">
-        <button class="slider-btn left" id="prevBtn"><span aria-label="Previous image">‹</span></button>
-        <div class="slider-track" id="sliderTrack">
+    <div class="slider-container" id="sliderContainer-<?php echo $gallery_id; ?>">
+        <button class="slider-btn left" id="prevBtn-<?php echo $gallery_id; ?>"><span aria-label="Previous image">‹</span></button>
+        <div class="slider-track" id="sliderTrack-<?php echo $gallery_id; ?>">
             <?php foreach ($images_array as $index => $img): ?>
                 <div class="slide" data-index="<?php echo $index; ?>">
                     <img src="<?php echo esc_url($img['href']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
                 </div>
             <?php endforeach; ?>
         </div>
-        <button class="slider-btn right" id="nextBtn"><span aria-label="Next image">›</span></button>
+        <button class="slider-btn right" id="nextBtn-<?php echo $gallery_id; ?>"><span aria-label="Next image">›</span></button>
     </div>
 <?php elseif ($gallery->gallery_style === 'slider-gallery'): ?>
-    <div class="slider-gallery-container" id="sliderGalleryContainer">
-        <button class="slider-gallery-btn left" id="prevGalleryBtn" aria-label="Previous slide"><span>‹</span></button>
-        <div class="slider-gallery-track" id="sliderGalleryTrack">
+    <div class="slider-gallery-container" id="sliderGalleryContainer-<?php echo $gallery_id; ?>">
+        <button class="slider-gallery-btn left" id="prevGalleryBtn-<?php echo $gallery_id; ?>" aria-label="Previous slide"><span>‹</span></button>
+        <div class="slider-gallery-track" id="sliderGalleryTrack-<?php echo $gallery_id; ?>">
             <?php
             $imagesPerSlide = 8;
             $chunks = array_chunk($images_array, $imagesPerSlide);
@@ -78,25 +78,24 @@ if (!function_exists('cuny_gallery_handler')) {
                 </div>
             <?php endforeach; ?>
         </div>
-        <button class="slider-gallery-btn right" id="nextGalleryBtn" aria-label="Next slide"><span>›</span></button>
+        <button class="slider-gallery-btn right" id="nextGalleryBtn-<?php echo $gallery_id; ?>" aria-label="Next slide"><span>›</span></button>
     </div>
 <?php endif; ?>
     <!-- MODAL -->
-    <div id="modal" class="modal" aria-hidden="true">
+    <div id="modal-<?php echo $gallery_id; ?>" class="modal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-label="Image viewer">
-            <button class="modal-close" id="modalClose" aria-label="Close modal"><span aria-label="Close modal">&times;</span></button>
+            <button class="modal-close" id="modalClose-<?php echo $gallery_id; ?>" aria-label="Close modal"><span aria-label="Close modal">&times;</span></button>
             <img src="" alt="">
-            <button class="modal-nav prev" id="modalPrev" aria-label="Previous image"><span>‹</span></button>
-            <button class="modal-nav next" id="modalNext" aria-label="Next image"><span>›</span></button>
+            <button class="modal-nav prev" id="modalPrev-<?php echo $gallery_id; ?>" aria-label="Previous image"><span>‹</span></button>
+            <button class="modal-nav next" id="modalNext-<?php echo $gallery_id; ?>" aria-label="Next image"><span>›</span></button>
         </div>
     </div>
 </div>
 <script>
-    const images = <?php echo json_encode($images_array, JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
+window.galleryImages_<?php echo $gallery_id; ?> = <?php echo json_encode($images_array, JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
 </script>
 <?php
         return ob_get_clean();
     }
 }
 add_shortcode('cuny_gallery', 'cuny_gallery_handler');
-?>
